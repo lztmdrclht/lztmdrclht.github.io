@@ -1,0 +1,727 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>STL总结 | 唐门</title>
+<link rel="shortcut icon" href="https://lztmdrclht.github.io/lztmdrclht.github.io/favicon.ico?v=1583758403419">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lztmdrclht.github.io/lztmdrclht.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="STL总结 | 唐门 - Atom Feed" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="目录
+
+STL
+
+vector
+map
+set
+stack
+queue
+priority_queue
+
+
+图论
+
+概念
+术语
+储存
+
+邻接矩阵
+邻接表
+
+
+
+
+动态规划
+
+定义
+性质
+步骤
+背包
+
+0/1背包
+完全背包
+
+
+
+
+分治
+
+定义..." />
+    <meta name="keywords" content="结" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lztmdrclht.github.io/lztmdrclht.github.io">
+  <img class="avatar" src="https://lztmdrclht.github.io/lztmdrclht.github.io/images/avatar.png?v=1583758403419" alt="">
+  </a>
+  <h1 class="site-title">
+    唐门
+  </h1>
+  <p class="site-description">
+    你我皆唐门，生在绝世中
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="lztmdrclht.github.io" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              STL总结
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-09
+              </span>
+              <span>
+                14 min read
+              </span>
+              
+                <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/tag/U1pKhl-cF/" class="post-tag">
+                  # 结
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="目录">目录</h2>
+<ul>
+<li>STL
+<ul>
+<li>vector</li>
+<li>map</li>
+<li>set</li>
+<li>stack</li>
+<li>queue</li>
+<li>priority_queue</li>
+</ul>
+</li>
+<li>图论
+<ul>
+<li>概念</li>
+<li>术语</li>
+<li>储存
+<ul>
+<li>邻接矩阵</li>
+<li>邻接表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动态规划
+<ul>
+<li>定义</li>
+<li>性质</li>
+<li>步骤</li>
+<li>背包
+<ul>
+<li>0/1背包</li>
+<li>完全背包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分治
+<ul>
+<li>定义</li>
+<li>适用条件</li>
+<li>二分查找</li>
+<li>快速幂</li>
+</ul>
+</li>
+<li>树
+<ul>
+<li>定义</li>
+<li>查找树根</li>
+<li>二叉树
+<ul>
+<li>遍历</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>并查集
+<ul>
+<li>题目</li>
+<li>做法
+<ul>
+<li>初始化</li>
+<li>查找
+<ul>
+<li>路径压缩</li>
+</ul>
+</li>
+<li>合并</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="一-stl">一    STL</h2>
+<p>C++标准模版库</p>
+<h4 id="组成部分">组成部分：</h4>
+<blockquote>
+<p>容器，算法，迭代器</p>
+</blockquote>
+<h4 id="i-vector-动态数组">Ⅰ. vector （动态数组）</h4>
+<p>定义：vector是一个能够存放任意类型的<strong>动态数组</strong>，能够增加 和压缩数据。</p>
+<p>头文件： <code>#include&lt;vector&gt;</code></p>
+<p>定义方式： <code>vector&lt;数据类型&gt; 名称</code></p>
+<p><a href="http://61.186.173.89:1024/contest/90/problem/4">常用函数</a></p>
+<h4 id="ii-map-关联容器">Ⅱ. map （关联容器）</h4>
+<p>定义：map是一个<strong>关联容器</strong>，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程上提供快速通道。</p>
+<p>头文件： <code>#include&lt;map&gt;</code></p>
+<p>定义方式： <code>map&lt;键的类型, 数据类型&gt; 名称</code></p>
+<p>数据存储方式</p>
+<pre><code class="language-cpp">mapStudent.insert(map&lt;int,string&gt;::value_type (3,&quot;student_three&quot;));//存入数据
+map&lt;int,string&gt;::iterator iter; //迭代器
+map&lt;int,string&gt;::reverse_iterator iter;//反向迭代器
+</code></pre>
+<h4 id="iii-set-集合">Ⅲ.  set （集合）</h4>
+<p>定义：set是一种容器，它所包含的元素的值是唯一的。</p>
+<p>头文件：<code>#include&lt;cstdio</code></p>
+<p>定义方式：<code>set&lt;数据类型&gt; 名称</code></p>
+<pre><code class="language-cpp">set&lt;string&gt;:: iterator s; //迭代器
+se.insert(&quot;cantaloupes&quot;);//存入数据
+</code></pre>
+<h4 id="iv-stack栈">Ⅳ. stack（栈）</h4>
+<p>定义：<strong>栈</strong>是一种数据结构，它按照后进先出的原则存储数据，先进入的数据被压入栈底，最后的数据在栈顶，需要读数据的时候从栈顶开始弹出数据。</p>
+<p>头文件： <code>#include&lt;stack&gt;</code></p>
+<p>定义方式： <code>stack&lt;数据类型&gt; 名称</code></p>
+<p>常用函数</p>
+<pre><code class="language-cpp">empty() //堆栈为空则返回真
+pop() //移除栈顶元素（不会返回栈顶元素的值）
+push() //在栈顶增加元素
+size() //返回栈中元素数目
+top() //返回栈顶元素
+</code></pre>
+<h4 id="v-queue队列">Ⅴ queue（队列）</h4>
+<p>定义：<strong>队列</strong>是一种特殊的线性表，是一种先进先出的数据结构。它只允许在前端进行删除操作，而在后端进行插入操作。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列中没有元素时，称为空队列。</p>
+<p>头文件： <code>#include&lt;queue&gt;</code></p>
+<p>定义方式： <code>queue&lt;数据类型&gt; 名称</code></p>
+<p>常用函数</p>
+<pre><code class="language-cpp">q.empty()	//判断队列q是否为空，当队列q空时，返回true;否则为false（值为0(false)/1(true)）。
+q.size()	//访问队列q中的元素个数。不可写成sizeof(q)或size(q)
+q.push()	//会将一个元素a置入队列q中
+q.front()	//返回队列q内的第一个元素(也就是第一个被置入的元素)。(不可写成front(q))
+q.back();	//会返回队列q中最后一个元素(也就是最后被插入的元素)。(不可写成back(q))
+q.pop()//会从队列q中移除第一个元素。(不可写成pop(q))
+</code></pre>
+<h4 id="vipriority_queue-优先队列">VI.priority_queue （优先队列）</h4>
+<p>定义：队列是一种先进先出的数据结构，在<strong>优先队列</strong>中，元素被赋予优先级。当访问元素时，最高优先级的元素最先访问。通常采用堆数据结构来实现。</p>
+<p>头文件： <code>#include&lt;queue&gt;</code></p>
+<p>定义方式 :<br>
+<em>priority_queue&lt;数据类型&gt;  名称  (升序)</em></p>
+<p><em>priority_queue&lt;int, vector<int>, less<int> &gt; q (升序)</em></p>
+<p><em>priority_queue&lt;int, vector<int>, greater<int> &gt; q (降序)</em></p>
+<p>常用函数</p>
+<pre><code class="language-cpp">push()	//将x加入优先队列
+pop()	//队首元素出队
+top()	//获得队首元素
+empty()	//如果优先队列为空,返回true
+size()	//返回priority_queue内元素的个数
+</code></pre>
+<p><strong>以上所有</strong>东西使用时需加<code>using namespace std;</code></p>
+<hr>
+<h2 id="二-图论">二 图论</h2>
+<h4 id="1定义">1.定义</h4>
+<p><em>图表示物件与物件之间的关系</em></p>
+<h4 id="2术语">2.术语</h4>
+<blockquote>
+<p>路径：至少两个相邻顶点组成的序列。<br>
+圈（环）：起点和终点重合的路径。<br>
+自环：一条边的起点与终点重合。<br>
+连通图：任意两点间都有路径连通。<br>
+权值：一个顶点到另一个顶点的花费，时间等。<br>
+无向边：没有指向的边。<br>
+无向图：所有的边都是无向边。<br>
+度：一个顶点所连接的边数。<br>
+树：没有环的无向连通图。<br>
+森林：没有环的无向非连通图。<br>
+有向边：有指向的边。<br>
+有向图：所有的边都是有向边。<br>
+出度：一个顶点到其他顶点的边数。<br>
+入度：其它顶点到一个顶点的边数。<br>
+度：一个顶点出度和入度的和。<br>
+有向环：起点与终点重合的一条有向路径。<br>
+有向无环图（DAG）：没有环的有向图。</p>
+</blockquote>
+<h4 id="2存储方式">2.存储方式：</h4>
+<figure data-type="image" tabindex="1"><img src="https://imgchr.com/i/eOm7d0" alt="" loading="lazy"></figure>
+<h6 id="1-邻接矩阵">1 邻接矩阵</h6>
+<p>上图储存为：</p>
+<pre><code class="language-cpp">0 0 1 1
+0 0 0 1
+1 0 0 1
+1 1 1 0
+</code></pre>
+<p>空间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>N</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">N^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>,MLE警告<br>
+代码如下：</p>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+int n, m;    // n为顶点数，m为边的数量
+bool a[205][205], used[205];
+int main(){
+   scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+   for(int i = 1; i &lt;= m; ++i) {
+   	int u, v;
+   	scanf(&quot;%d %d&quot;, &amp;u, &amp;v);
+   	a[u][v] = true;
+   }
+   return 0;
+}
+</code></pre>
+<h5 id="2-邻接表">2 邻接表</h5>
+<p>上图储存为</p>
+<pre><code class="language-cpp">1: 3 4
+2: 4
+3: 1 4
+4: 1 2 3
+</code></pre>
+<p>空间复杂度为M，远小于邻接矩阵<br>
+代码如下：</p>
+<pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int MAXN = 1005;
+vector&lt;int&gt; G[MAXN];
+int n, m;   
+bool used[MAXN];
+void addEdge(int u, int v){
+	G[u].push_back(v);
+}
+int main(){
+	scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+	for(int i = 1; i &lt;= m; ++i) {
+		int u, v;
+		scanf(&quot;%d %d&quot;, &amp;u, &amp;v);
+		addEdge(u, v);
+    }
+	return 0;
+}
+</code></pre>
+<hr>
+<h2 id="三-dp-动态规划">三 DP <em>动态规划</em></h2>
+<h4 id="定义">定义</h4>
+<p>动态规划(dynamic programming)是运筹学的一个分支，是求解决策过程(decision process)最优化的数学方法。20世纪50年代初美国数学家R.E.Bellman等人在研究多阶段决策过程(multistep decision process)的优化问题时，提出了著名的最优化原理(principle of optimality)，把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法–动态规划。1957年出版了他的名著《Dynamic Programming》，这是该领域的第一本著作。</p>
+<h4 id="dp题满足的三大性质">DP题满足的三大性质</h4>
+<p><em>1.最优子结构性质: 如果问题的最优解所包含的子问题的解也是最优的,我们就称该问题具有最优子结构性质(即满足最优化原理).最优子结构性质为动态规划算法解决问题提供了重要线索.</em></p>
+<p><em>2.子问题重叠性质: 子问题重叠性质是指在用递归算法自顶向下对问题进行求解时,每次产生的子问题并不总是新问题,有些子问题会被重复计算多次.动态规划算法正是利用了这种子问题的重叠性质,对每一个子问题只计算一次,然后将其计算结果保存在一个表格中,当再次需要计算已经计算过的子问题时,只是在表格中简单地查看一下结果,从而获得较高的效率.</em></p>
+<p><em>3.无后效性: 将各阶段按照一定的次序排列好之后,对于某个给定的阶段状态,它以前各阶段的状态无法直接影响它未来的决策,而只能通过当前的这个状态.换句话说,每个状态都是过去历史的一个完整总结.这就是无后向性,又称为无后效性.</em></p>
+<h4 id="步骤">步骤：</h4>
+<pre><code>1.状态:最后一步与子问题.
+2.确定状态转移方程.
+3.确定边界.
+4.计算顺序.
+</code></pre>
+<h3 id="背包问题">背包问题</h3>
+<p>背包问题是一种组合优化的NP完全问题。问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。</p>
+<h4 id="01背包">0/1背包</h4>
+<p>有N件物品和一个容量为V的背包。第i件物品的重量是w[i]，价值是v[i]。求解将哪些物品装入背包可使这些物品的重量总和不超过背包容量，且价值总和最大。<br>
+<img src="https://images2018.cnblogs.com/blog/1337511/201803/1337511-20180306201113576-250716853.jpg" alt="" loading="lazy"><br>
+如图，第i行j列表示选取前i个物品装进容量为j的背包的最大价值，可得状态转移方程，见下代码</p>
+<pre><code class="language-cpp">for (int i = 1; i &lt;= N; ++i) {
+    for (int j = 0; j &lt;= V; ++j) {
+        if(j &gt;= w[i]) dp[i][j] = max(dp[i - 1][j - w[i]] + v[i], dp[i - 1][j]);
+        else dp[i][j] = dp[i-1][j];
+    }
+}
+</code></pre>
+<h3 id="完全背包">完全背包</h3>
+<p>有N种物品和一个容量为V的背包，每种物品都有无限件可用。第i种物品的体积是c，价值是w。将哪些物品装入背包可使这些物品的体积总和不超过背包容量，且价值总和最大。<br>
+见代码</p>
+<pre><code class="language-cpp">for (int i = 1; i &lt;= n; ++ i)
+    for (int j = c[i]; j &lt;= v; ++ j)
+        dp[j] = max(dp[j - c[i]] + w[i], dp[j]);
+</code></pre>
+<p>可以发现：与0/1背包相比，完全背包只是第二重循环的顺序发生了改变。我们保证用较小容量的最大价值去更新较大容量的最大价值，不重不漏。时间复杂度O（V*N），空间复杂度O（V）。</p>
+<hr>
+<h2 id="四-分治">四 分治</h2>
+<h4 id="定义-2">定义：</h4>
+<p><em>分治，字面上的解释是“<strong>分而治之</strong>”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。</em></p>
+<h4 id="适用条件">适用条件：</h4>
+<ol>
+<li>问题的规模缩小到一定的规模就可以较容易地解决。</li>
+<li>问题可以分解为若干个规模较小的模式相同的子问题，即该问题具有最优子结构性质。</li>
+<li>合并问题分解出的子问题的解可以得到问题的解。</li>
+<li>问题所分解出的各个子问题之间是独立的，即子问题之间不存在公共的子问题。</li>
+</ol>
+<h5 id="二分查找">二分查找</h5>
+<p>要求：数列有序<br>
+例题 ： <a href="http://61.186.173.89:1024/problem/2616">折半查找法</a></p>
+<p>最初设左右端点为数组边界，中位数与需查找的数比较，缩近左右端点至中间，时间复杂度O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mo>(</mo></msub><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">log_(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1052em;vertical-align:-0.3551999999999999em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mopen mtight">(</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>);</p>
+<pre><code class="language-cpp">#include &lt;cstdio&gt;
+int n,a[100005],m,dp[1000005];
+int main(){
+	scanf(&quot;%d&quot;,&amp;n);
+	for (int i = 1 ; i  &lt;= n ; i++){
+		scanf(&quot;%d&quot;,&amp;a[i]);
+		dp[a[i]] = 1;
+	} 
+	scanf(&quot;%d&quot;,&amp;m);
+	if (!dp[m]){
+		printf(&quot;-1&quot;);
+		return 0;
+	}
+	int l = 1,r = n;
+	while(l &lt; r){
+		int mid = (l + r) / 2;
+		if (a[mid] &lt; m) l = mid;
+		if (a[mid] &gt; m) r = mid;
+		if (a[mid] == m){
+			printf(&quot;%d&quot;,mid);
+			return 0;
+		}
+	}
+	
+	return 0;
+} 
+</code></pre>
+<h5 id="快速幂"><a href="http://61.186.173.89:1024/problem/399">快速幂</a></h5>
+<pre><code class="language-cpp">ll qpow(ll a, ll n) {
+    ll re = 1;
+    while(n) {
+        if(n &amp; 1 == 1) re = (re * a) % MOD;
+        n &gt;&gt;= 1;
+        a = a * a % MOD;
+    }
+    return re % MOD;
+}
+</code></pre>
+<hr>
+<h2 id="五-树">五 树</h2>
+<h4 id="定义树是一种数据结构它是由nn0个有限结点组成一个具有层次关系的集合-把它叫做树是因为它看起来像一棵倒挂的树也就是说它是根朝上而叶朝下的">定义：树是一种数据结构，它是由n（n&gt;=0）个有限结点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。</h4>
+<h5 id="特点">特点：</h5>
+<blockquote>
+<p>每个结点有零个或多个子结点；<br>
+没有父结点的结点称为根结点；<br>
+每一个非根结点有且只有一个父结点；<br>
+除了根结点外，每个子结点可以分为多个不相交的子树；</p>
+</blockquote>
+<h5 id="术语">术语</h5>
+<blockquote>
+<p>节点的度：一个节点含有的子树的个数称为该节点的度；<br>
+叶节点：度为0的节点称为叶节点；<br>
+父节点：若一个节点含有子节点，则这个节点称为其子节点的父节点；<br>
+子节点：一个节点含有的子树的根节点称为该节点的子节点；<br>
+树的度：一棵树中，最大的节点的度称为树的度；<br>
+节点的层：从根开始定义起，根为第1层，根的子节点为第2层，以此类推；<br>
+树的高度：树中节点的最大层次；<br>
+森林：由m（m&gt;=0）棵互不相交的树的集合称为森林；</p>
+</blockquote>
+<h5 id="查找树根">查找树根</h5>
+<p>方法：<strong>根</strong>为没有父节点的节点，找到那个没有父节点的节点就行了</p>
+<pre><code class="language-cpp">for(int i = 1, k, m = 0; i &lt;= n; m = 0, ++i){
+	if(tree[i].fa == 0) {
+		root = i;
+		break;
+	}
+}
+</code></pre>
+<h3 id="二叉树">二叉树</h3>
+<p>定义：每个节点最多含有两个子树的树称为二叉树；</p>
+<h5 id="遍历方式">遍历方式</h5>
+<ul>
+<li>先序遍历：根，左子树，右子树</li>
+<li>中序遍历：左子树，根，右子树</li>
+<li>后序遍历：左子树，右子树，根</li>
+<li>层次遍历：BFS</li>
+</ul>
+<p>先序</p>
+<pre><code class="language-cpp">void ergodic_front(int now){
+	node tmp=tree[now];
+	printf(&quot;%d &quot;,tmp.node);
+	if(tmp.lchild)	ergodic_front(tmp.lchild);
+	if(tmp.rchild)	ergodic_front(tmp.rchild);
+}
+</code></pre>
+<p>层次</p>
+<pre><code class="language-cpp">void engodic_floor(int now) {
+	queue&lt;node&gt; Q;
+	Q.push(tree[now]);
+	while(!Q.empty()){
+		node x = Q.front();
+		printf(&quot;%d &quot;, x.data);
+		Q.pop();
+		Q.push(tree[x.lch]);
+		Q.push(tree[x.rch]);
+	}
+}
+</code></pre>
+<hr>
+<h2 id="六-并查集">六 并查集</h2>
+<h5 id="题目">题目：</h5>
+<p><em>在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一集合的元素所在的集合合并，其间要多次查找一个元素在哪个集合中。</em></p>
+<h3 id="做法">做法</h3>
+<p>用树模拟集合，查找集合是否相同即为查找树根是否相同</p>
+<h4 id="初始化">初始化</h4>
+<p>将每个数的根初始化为自己</p>
+<pre><code class="language-cpp">void MakeSet(int n) {
+	for(int i = 1; i &lt;= n; ++i) fa[i] = i;
+	return ;
+}
+</code></pre>
+<h4 id="查找">查找</h4>
+<pre><code class="language-cpp">int FindSet(int x) {
+	while(x != fa[x]) {
+		fa[x] = fa[fa[x]];
+		x = fa[x];
+	}
+	return x;
+}
+</code></pre>
+<h5 id="路径压缩">路径压缩</h5>
+<p>在树深度高时，用时长，则通过将所有数的父节点设为根</p>
+<pre><code class="language-cpp">int FindSet(int x) {
+	if(x != fa[x])	return fa[x] = FindSet(fa[x]);
+	else return x;
+}
+</code></pre>
+<h4 id="合并">合并</h4>
+<pre><code class="language-cpp">void UnionSet(int x, int y) {
+	int u = FindSet(x), v = FindSet(y);
+	if(u == v) return ;
+	fa[u] = v;
+	return ;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#%E4%B8%80-stl">一    STL</a><br>
+*
+<ul>
+<li><a href="#%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86">组成部分：</a></li>
+<li><a href="#i-vector-%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84">Ⅰ. vector （动态数组）</a></li>
+<li><a href="#ii-map-%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8">Ⅱ. map （关联容器）</a></li>
+<li><a href="#iii-set-%E9%9B%86%E5%90%88">Ⅲ.  set （集合）</a></li>
+<li><a href="#iv-stack%E6%A0%88">Ⅳ. stack（栈）</a></li>
+<li><a href="#v-queue%E9%98%9F%E5%88%97">Ⅴ queue（队列）</a></li>
+<li><a href="#vipriority_queue-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97">VI.priority_queue （优先队列）</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E5%9B%BE%E8%AE%BA">二 图论</a><br>
+*
+<ul>
+<li><a href="#1%E5%AE%9A%E4%B9%89">1.定义</a></li>
+<li><a href="#2%E6%9C%AF%E8%AF%AD">2.术语</a></li>
+<li><a href="#2%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F">2.存储方式：</a><br>
+*
+<ul>
+<li><a href="#1-%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5">1 邻接矩阵</a></li>
+<li><a href="#2-%E9%82%BB%E6%8E%A5%E8%A1%A8">2 邻接表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-dp-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">三 DP <em>动态规划</em></a><br>
+*
+<ul>
+<li><a href="#%E5%AE%9A%E4%B9%89">定义</a></li>
+<li><a href="#dp%E9%A2%98%E6%BB%A1%E8%B6%B3%E7%9A%84%E4%B8%89%E5%A4%A7%E6%80%A7%E8%B4%A8">DP题满足的三大性质</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A4">步骤：</a></li>
+<li><a href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">背包问题</a>
+<ul>
+<li><a href="#01%E8%83%8C%E5%8C%85">0/1背包</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85">完全背包</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-%E5%88%86%E6%B2%BB">四 分治</a><br>
+*
+<ul>
+<li><a href="#%E5%AE%9A%E4%B9%89-2">定义：</a></li>
+<li><a href="#%E9%80%82%E7%94%A8%E6%9D%A1%E4%BB%B6">适用条件：</a>
+<ul>
+<li><a href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">二分查找</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%B9%82">快速幂</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-%E6%A0%91">五 树</a><br>
+*
+<ul>
+<li><a href="#%E5%AE%9A%E4%B9%89%E6%A0%91%E6%98%AF%E4%B8%80%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AE%83%E6%98%AF%E7%94%B1nn0%E4%B8%AA%E6%9C%89%E9%99%90%E7%BB%93%E7%82%B9%E7%BB%84%E6%88%90%E4%B8%80%E4%B8%AA%E5%85%B7%E6%9C%89%E5%B1%82%E6%AC%A1%E5%85%B3%E7%B3%BB%E7%9A%84%E9%9B%86%E5%90%88-%E6%8A%8A%E5%AE%83%E5%8F%AB%E5%81%9A%E6%A0%91%E6%98%AF%E5%9B%A0%E4%B8%BA%E5%AE%83%E7%9C%8B%E8%B5%B7%E6%9D%A5%E5%83%8F%E4%B8%80%E6%A3%B5%E5%80%92%E6%8C%82%E7%9A%84%E6%A0%91%E4%B9%9F%E5%B0%B1%E6%98%AF%E8%AF%B4%E5%AE%83%E6%98%AF%E6%A0%B9%E6%9C%9D%E4%B8%8A%E8%80%8C%E5%8F%B6%E6%9C%9D%E4%B8%8B%E7%9A%84">定义：树是一种数据结构，它是由n（n&gt;=0）个有限结点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。</a>
+<ul>
+<li><a href="#%E7%89%B9%E7%82%B9">特点：</a></li>
+<li><a href="#%E6%9C%AF%E8%AF%AD">术语</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E6%A0%91%E6%A0%B9">查找树根</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a><br>
+*
+<ul>
+<li><a href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F">遍历方式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD-%E5%B9%B6%E6%9F%A5%E9%9B%86">六 并查集</a><br>
+*<br>
+*<br>
+* <a href="#%E9%A2%98%E7%9B%AE">题目：</a>
+<ul>
+<li><a href="#%E5%81%9A%E6%B3%95">做法</a>
+<ul>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96">初始化</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE">查找</a>
+<ul>
+<li><a href="#%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9">路径压缩</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%88%E5%B9%B6">合并</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/joisc2014-dao-cao-ren/">
+              <h3 class="post-title">
+                「JOISC2014」稻草人
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'lztmdrclht.github.io',
+    owner: 'lztmdrclht',
+    admin: ['lztmdrclht'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

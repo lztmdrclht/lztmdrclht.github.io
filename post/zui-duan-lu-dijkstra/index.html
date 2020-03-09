@@ -1,0 +1,303 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>最短路——Dijkstra | 唐门</title>
+<link rel="shortcut icon" href="https://lztmdrclht.github.io/lztmdrclht.github.io/favicon.ico?v=1583758403419">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lztmdrclht.github.io/lztmdrclht.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="最短路——Dijkstra | 唐门 - Atom Feed" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="一. 适用范围
+I.单源最短路
+II.无负权边
+二. 算法
+
+
+1. 思想：
+设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组。
+一组为已求出最短路径的顶点集合SSS,另一组为未确定最短路径的顶点集合UUU.每个顶点对应原点到此节..." />
+    <meta name="keywords" content="结" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lztmdrclht.github.io/lztmdrclht.github.io">
+  <img class="avatar" src="https://lztmdrclht.github.io/lztmdrclht.github.io/images/avatar.png?v=1583758403419" alt="">
+  </a>
+  <h1 class="site-title">
+    唐门
+  </h1>
+  <p class="site-description">
+    你我皆唐门，生在绝世中
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="lztmdrclht.github.io" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              最短路——Dijkstra
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-09
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/tag/U1pKhl-cF/" class="post-tag">
+                  # 结
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h4 id="一-适用范围">一. 适用范围</h4>
+<p>I.单源最短路</p>
+<p>II.无负权边</p>
+<h4 id="二-算法">二. 算法</h4>
+<ul>
+<li>
+<h6 id="1-思想">1. 思想：</h6>
+<p>设G=(V,E)是一个带权有向图，把图中顶点集合V分成两组。</p>
+<p>一组为已求出最短路径的顶点集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>,另一组为未确定最短路径的顶点集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span>.每个顶点对应原点到此节点当前最短距离。</p>
+<p>初始时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>中只有一个源点，以后每求得一条最短路径, 就将加入到集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>中，直到全部顶点都加入到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>中。</p>
+<p>按最短路径长度的递增次序依次把第二组的顶点加入S中。因为已经是当前最短边，所以不可能通过其他点中转更新。【这也是为什么不能有负权边的原因】，然后更新<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span>。</p>
+</li>
+<li>
+<h6 id="2-实现">2. 实现：</h6>
+<p>用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mi>o</mi><mi>o</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">bool</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mord mathdefault">o</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>表示当前节点属于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span>。初始时<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>中只有原点，再从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>U</mi></mrow><annotation encoding="application/x-tex">U</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span>中选取一个距离最小的顶点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>加入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>,以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>为的中间点，更新U中各顶点的距离。重复以上操作直至所有节点都在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>中。</p>
+</li>
+<li>
+<h6 id="3-图例">3. 图例</h6>
+</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://pic002.cnblogs.com/images/2012/426620/2012073019540660.gif" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<h6 id="4-代码">4. 代码</h6>
+</li>
+</ul>
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+const int  MAXN = 10000, INF = 0x3f3f3f3f;
+using namespace std;
+bool vis[MAXN];
+long long e[MAXN][MAXN], dis[MAXN], n, m, s, t, u, v, w;
+void init() {
+	for(int i = 0; i &lt;= n; i++) {
+		for(int j = 0; j &lt;= n; j++) {
+			if(i == j) e[i][j] = 0;
+			else e[i][j] = INF;
+		}
+	}
+}
+void Dijkstra() {
+	for(int i = 0; i &lt;= n; i++) {
+		vis[i] = 0;
+		dis[i] = INF;
+	}
+	dis[s] = 0;
+	int minn, cur;
+	for(int k = 0; k &lt; n; k++) {
+		minn = INF;
+		cur=0;
+		for(int i = 0; i &lt;= n; i++) {
+			if(minn &gt; dis[i] &amp;&amp; !vis[i]) {
+				minn = dis[i];
+				cur = i;
+			}
+		}
+		if(!cur) continue;
+		vis[cur] = 1;
+		for(int i = 0; i &lt;= n; i++)
+			if(e[cur][i])
+				dis[i] = min(dis[i],dis[cur]+e[cur][i]);
+	}
+}
+int main() {
+	scanf(&quot;%d %d %d %d&quot;, &amp;n, &amp;m, &amp;s, &amp;t);
+	init();
+	for(int i = 0; i &lt; m; i++) {
+		scanf(&quot;%d %d %d&quot;, &amp;u, &amp;v, &amp;w);
+		e[u][v] = w;
+		e[v][u] = w;
+	}
+	Dijkstra();
+	printf(&quot;%d\n&quot;, dis[t]);
+	return 0;
+}
+</code></pre>
+<h4 id="三-例题非负权单源最短路">三. 例题：<a href="http://222.180.160.110:1024/problem/2848">非负权单源最短路</a></h4>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">一. 适用范围</a></li>
+<li><a href="#%E4%BA%8C-%E7%AE%97%E6%B3%95">二. 算法</a><br>
+*
+<ul>
+<li><a href="#1-%E6%80%9D%E6%83%B3">1. 思想：</a></li>
+<li><a href="#2-%E5%AE%9E%E7%8E%B0">2. 实现：</a></li>
+<li><a href="#3-%E5%9B%BE%E4%BE%8B">3. 图例</a></li>
+<li><a href="#4-%E4%BB%A3%E7%A0%81">4. 代码</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E4%BE%8B%E9%A2%98%E9%9D%9E%E8%B4%9F%E6%9D%83%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF">三. 例题：非负权单源最短路</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/zui-duan-lu-spfa/">
+              <h3 class="post-title">
+                最短路——SPFA
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'lztmdrclht.github.io',
+    owner: 'lztmdrclht',
+    admin: ['lztmdrclht'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

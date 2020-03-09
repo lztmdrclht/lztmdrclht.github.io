@@ -1,0 +1,265 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>最大异或对 | 唐门</title>
+<link rel="shortcut icon" href="https://lztmdrclht.github.io/lztmdrclht.github.io/favicon.ico?v=1583758403419">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lztmdrclht.github.io/lztmdrclht.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="最大异或对 | 唐门 - Atom Feed" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="题目
+校内OJ
+分析
+1.考点
+Trie
+2.思路
+从二进制下手，思考异或本质，我们会发现位置越高越重要，所以我们要优先考虑高位。挨个比对显然不行，这时候，就可以用字典树了。
+用trietrietrie存储所有数的二进制，就可以从最高位（根..." />
+    <meta name="keywords" content="Trie" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lztmdrclht.github.io/lztmdrclht.github.io">
+  <img class="avatar" src="https://lztmdrclht.github.io/lztmdrclht.github.io/images/avatar.png?v=1583758403419" alt="">
+  </a>
+  <h1 class="site-title">
+    唐门
+  </h1>
+  <p class="site-description">
+    你我皆唐门，生在绝世中
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="lztmdrclht.github.io" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              最大异或对
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-09
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/tag/uezhflJ-H/" class="post-tag">
+                  # Trie
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="题目">题目</h3>
+<p><a href="http://222.180.160.110:1024/problem/5996">校内OJ</a></p>
+<h3 id="分析">分析</h3>
+<h5 id="1考点">1.考点</h5>
+<p>Trie</p>
+<h5 id="2思路">2.思路</h5>
+<p>从二进制下手，思考异或本质，我们会发现位置越高越重要，所以我们要优先考虑高位。挨个比对显然不行，这时候，就可以用字典树了。</p>
+<p>用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>r</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">trie</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault">e</span></span></span></span>存储所有数的二进制，就可以从最高位（根）开始查找，保证高位优先。而且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>r</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">trie</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault">e</span></span></span></span>中有且仅有所有可用的数，能保证查找到当前能查的是最优方案。只需枚举每个数，从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>r</mi><mi>i</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">trie</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault">e</span></span></span></span>中顺着匹配的数走，尽量找不同，最后取最大值就可以了。</p>
+<h3 id="代码">代码</h3>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cmath&gt;
+using namespace std;
+const int MAXN = 100005;
+int n, tot = 2, trie[MAXN * 32][3], a[MAXN];
+void _insert(int x) {
+	int root = 1;
+    for(int i = 30; i &gt;= 0; --i) {
+    	int u = x &gt;&gt; i &amp; 1;
+    	if(!trie[root][u]) trie[root][u] = tot++;
+        root = trie[root][u];
+	}
+}
+int _find(int x) {
+	int root = 1, ans = 0;
+    for(int i = 30; i &gt;= 0; i--){
+        int u = x &gt;&gt; i &amp; 1;
+        if(trie[root][u^1]){
+            root = trie[root][u^1];
+            ans += (1 &lt;&lt; i);
+        }
+        else root = trie[root][u];
+    }
+    return ans;
+}
+int main() {
+    scanf(&quot;%d&quot;, &amp;n);
+    for(int i = 1; i &lt;= n; i++) {
+        scanf(&quot;%d&quot;, &amp;a[i]); 
+		_insert(a[i]);
+    }
+    int ans = 0;
+    for(int i = 1; i &lt;= n; ++i) ans = max(ans, _find(a[i]));
+    printf(&quot;%d\n&quot;, ans);
+    return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E7%9B%AE">题目</a></li>
+<li><a href="#%E5%88%86%E6%9E%90">分析</a><br>
+*
+<ul>
+<li><a href="#1%E8%80%83%E7%82%B9">1.考点</a></li>
+<li><a href="#2%E6%80%9D%E8%B7%AF">2.思路</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/trie-zi-dian-shu/">
+              <h3 class="post-title">
+                Trie字典树
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'lztmdrclht.github.io',
+    owner: 'lztmdrclht',
+    admin: ['lztmdrclht'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

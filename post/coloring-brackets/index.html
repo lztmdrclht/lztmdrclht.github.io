@@ -1,0 +1,335 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Coloring Brackets | 唐门</title>
+<link rel="shortcut icon" href="https://lztmdrclht.github.io/lztmdrclht.github.io/favicon.ico?v=1583758403419">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lztmdrclht.github.io/lztmdrclht.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Coloring Brackets | 唐门 - Atom Feed" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="题目
+校内OJ
+洛谷
+分析
+1.考点
+区间dp
+2.思路情况
+
+定义状态:dp[l][r][u][v]dp[l][r][u][v]dp[l][r][u][v]表示从lll到rrr的一个合法括号序列,左端颜色为uuu，右端颜色为vvv的染色方..." />
+    <meta name="keywords" content="dp——区间dp" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://lztmdrclht.github.io/lztmdrclht.github.io">
+  <img class="avatar" src="https://lztmdrclht.github.io/lztmdrclht.github.io/images/avatar.png?v=1583758403419" alt="">
+  </a>
+  <h1 class="site-title">
+    唐门
+  </h1>
+  <p class="site-description">
+    你我皆唐门，生在绝世中
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="lztmdrclht.github.io" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Coloring Brackets
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-09
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/tag/KeKhqcOiC/" class="post-tag">
+                  # dp——区间dp
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="题目">题目</h3>
+<p><a href="http://222.180.160.110:1024/problem/10907">校内OJ</a><br>
+<a href="https://www.luogu.com.cn/problem/CF149D">洛谷</a></p>
+<h3 id="分析">分析</h3>
+<h5 id="1考点">1.考点</h5>
+<p>区间dp</p>
+<h5 id="2思路情况">2.思路情况</h5>
+<ol>
+<li>定义状态:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>p</mi><mo>[</mo><mi>l</mi><mo>]</mo><mo>[</mo><mi>r</mi><mo>]</mo><mo>[</mo><mi>u</mi><mo>]</mo><mo>[</mo><mi>v</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">dp[l][r][u][v]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">p</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">u</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span></span></span></span>表示从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>的一个合法括号序列,左端颜色为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span>，右端颜色为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span>的染色方案数【<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span>影响两个序列合并】【<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>[</mo><mi>l</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">s[l]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mclose">]</span></span></span></span>必然为‘(’，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>[</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">s[r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>必然为‘）’，否则不合法】。那么，让我们先将 <s>垃圾</s> 情况分类：(大写字母表示一个合法的括号序列)</li>
+</ol>
+<blockquote>
+<ul>
+<li>情况1. <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>+</mo><mn>1</mn><mo>=</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">l + 1 = r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>, 则该序列为： <code>()</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>情况2. <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>组成一对括号，则该序列为： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>A</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(A)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>情况3. <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>属于两个不同的合法序列。则该序列为： <code>(A)(B)</code></li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>
+<p>顺序：一个合法的括号序列需要拆分成更短的括号序列，而序列无法直接枚举长度，所以可以通过搜索递归。</p>
+</li>
+<li>
+<p>方程</p>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>情况1. 边界：(<s><em>显然</em></s>)</li>
+</ul>
+</blockquote>
+<pre><code>dp[l][r][1][0] = dp[l][r][2][0] = dp[l][r][0][1] = dp[l][r][0][2] = 1;
+</code></pre>
+<blockquote>
+<ul>
+<li>情况2. 枚举最外层括号内两端颜色，可得：</li>
+</ul>
+</blockquote>
+<pre><code class="language-cpp">if(i != 1) dp[l][r][1][0] = (dp[l][r][1][0] + dp[l + 1][r - 1][i][j]) % mod;
+if(j != 1) dp[l][r][0][1] = (dp[l][r][0][1] + dp[l + 1][r - 1][i][j]) % mod;
+if(i != 2) dp[l][r][2][0] = (dp[l][r][2][0] + dp[l + 1][r - 1][i][j]) % mod;
+if(j != 2) dp[l][r][0][2] = (dp[l][r][0][2] + dp[l + 1][r - 1][i][j]) % mod;
+</code></pre>
+<blockquote>
+<ul>
+<li>情况3.即将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>拆成左右两个合法序列。根据其匹配的括号将序列拆分</li>
+</ul>
+</blockquote>
+<pre><code class="language-cpp">dp[l][r][i][j] = (dp[l][r][i][j] + (dp[l][x][i][u] * dp[x + 1][r][v][j]) % mod) % mod;
+</code></pre>
+<h3 id="代码">代码</h3>
+<pre><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const long long mod = 1e9 + 7, MAXN = 705;
+char s[MAXN];
+int len, p[MAXN], t[MAXN];
+long long dp[MAXN][MAXN][4][4], ans;
+void dfs(int l, int r) {
+    if(l + 1 == r) {
+        dp[l][r][0][1] = 1;
+        dp[l][r][1][0] = 1;
+        dp[l][r][2][0] = 1;
+        dp[l][r][0][2] = 1;
+        return ;
+    }
+    if(p[r] == l) {
+        dfs(l + 1, r - 1);
+        for(int i = 0; i &lt; 3; i++) {
+            for(int j = 0; j &lt; 3; j++) {
+                if(i != 1) dp[l][r][1][0] = (dp[l][r][1][0] + dp[l+1][r-1][i][j]) % mod;
+                if(j != 1) dp[l][r][0][1] = (dp[l][r][0][1] + dp[l+1][r-1][i][j]) % mod;
+                if(i != 2) dp[l][r][2][0] = (dp[l][r][2][0] + dp[l+1][r-1][i][j]) % mod;
+                if(j != 2) dp[l][r][0][2] = (dp[l][r][0][2] + dp[l+1][r-1][i][j]) % mod;
+            }
+        }
+    }
+    else {
+        int x = p[l];
+        dfs(l, x);
+        dfs(x + 1, r);
+        for(int i = 0; i &lt; 3; i++) 
+            for(int j = 0; j &lt; 3; j++) 
+                for(int u = 0; u &lt; 3; u++) 
+                    for(int v = 0; v &lt; 3; v++) 
+                        if(!(u == 1 &amp;&amp; v == 1 || u == 2 &amp;&amp; v == 2))
+						 	dp[l][r][i][j] = (dp[l][r][i][j] + (dp[l][x][i][u] * dp[x + 1][r][v][j]) % mod) % mod;
+    }
+}
+int main() {
+    scanf(&quot;%s&quot;, s + 1);
+    len = strlen(s + 1);
+	for(int i = 1, k = 0; i &lt;= len; i++) {
+        if(s[i] == '(') t[k++] = i;
+        else {
+            p[i] = t[k - 1];
+            p[t[--k]] = i;
+        }
+    }
+    dfs(1, len);
+	for(int i = 0; i &lt; 3; i++) 
+        for(int j = 0; j &lt; 3; j++) 
+            ans = (ans + dp[1][len][i][j]) % mod;
+    printf(&quot;%lld\n&quot;, ans);
+    return 0;
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E7%9B%AE">题目</a></li>
+<li><a href="#%E5%88%86%E6%9E%90">分析</a><br>
+*
+<ul>
+<li><a href="#1%E8%80%83%E7%82%B9">1.考点</a></li>
+<li><a href="#2%E6%80%9D%E8%B7%AF%E6%83%85%E5%86%B5">2.思路情况</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/hash/">
+              <h3 class="post-title">
+                hash
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: 'lztmdrclht.github.io',
+    owner: 'lztmdrclht',
+    admin: ['lztmdrclht'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
