@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://lztmdrclht.github.io/lztmdrclht.github.io</id>
+    <id>https://lztmdrclht.github.io</id>
     <title>唐门</title>
-    <updated>2020-03-12T13:17:43.083Z</updated>
+    <updated>2020-03-12T13:19:24.404Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://lztmdrclht.github.io/lztmdrclht.github.io"/>
-    <link rel="self" href="https://lztmdrclht.github.io/lztmdrclht.github.io/atom.xml"/>
+    <link rel="alternate" href="https://lztmdrclht.github.io"/>
+    <link rel="self" href="https://lztmdrclht.github.io/atom.xml"/>
     <subtitle>你我皆唐门，生在绝世中</subtitle>
-    <logo>https://lztmdrclht.github.io/lztmdrclht.github.io/images/avatar.png</logo>
-    <icon>https://lztmdrclht.github.io/lztmdrclht.github.io/favicon.ico</icon>
+    <logo>https://lztmdrclht.github.io/images/avatar.png</logo>
+    <icon>https://lztmdrclht.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 唐门</rights>
     <entry>
         <title type="html"><![CDATA[随机图]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/sui-ji-tu/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/sui-ji-tu/">
+        <id>https://lztmdrclht.github.io/post/sui-ji-tu/</id>
+        <link href="https://lztmdrclht.github.io/post/sui-ji-tu/">
         </link>
         <updated>2020-03-09T12:52:31.000Z</updated>
         <content type="html"><![CDATA[<p><img src="http://api.mtyqx.cn/tapi/random.php" alt="" loading="lazy"><br>
@@ -30,8 +30,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[学习（魔法）]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/xue-xi-mo-fa/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/xue-xi-mo-fa/">
+        <id>https://lztmdrclht.github.io/post/xue-xi-mo-fa/</id>
+        <link href="https://lztmdrclht.github.io/post/xue-xi-mo-fa/">
         </link>
         <updated>2020-03-09T12:52:07.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://imgchr.com/">图床1</a></p>
@@ -46,8 +46,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[颓废法术]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/tui-fei-fa-zhu/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/tui-fei-fa-zhu/">
+        <id>https://lztmdrclht.github.io/post/tui-fei-fa-zhu/</id>
+        <link href="https://lztmdrclht.github.io/post/tui-fei-fa-zhu/">
         </link>
         <updated>2020-03-09T12:51:24.000Z</updated>
         <content type="html"><![CDATA[<h2 id="颓废慎入"><s>颓废慎入</s></h2>
@@ -67,8 +67,8 @@ https://www.taptap.com/topic/2786363</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[STL总结]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/stl-zong-jie/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/stl-zong-jie/">
+        <id>https://lztmdrclht.github.io/post/stl-zong-jie/</id>
+        <link href="https://lztmdrclht.github.io/post/stl-zong-jie/">
         </link>
         <updated>2020-03-09T12:50:58.000Z</updated>
         <content type="html"><![CDATA[<h2 id="目录">目录</h2>
@@ -476,8 +476,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[「JOISC2014」稻草人]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/joisc2014-dao-cao-ren/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/joisc2014-dao-cao-ren/">
+        <id>https://lztmdrclht.github.io/post/joisc2014-dao-cao-ren/</id>
+        <link href="https://lztmdrclht.github.io/post/joisc2014-dao-cao-ren/">
         </link>
         <updated>2020-03-09T12:50:29.000Z</updated>
         <content type="html"><![CDATA[<h3 id="题目">题目</h3>
@@ -561,8 +561,8 @@ int main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[求逆序对]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/qiu-ni-xu-dui/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/qiu-ni-xu-dui/">
+        <id>https://lztmdrclht.github.io/post/qiu-ni-xu-dui/</id>
+        <link href="https://lztmdrclht.github.io/post/qiu-ni-xu-dui/">
         </link>
         <updated>2020-03-09T12:50:03.000Z</updated>
         <content type="html"><![CDATA[<h3 id="题目">题目</h3>
@@ -611,8 +611,8 @@ int main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[三角形牧场]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/san-jiao-xing-mu-chang/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/san-jiao-xing-mu-chang/">
+        <id>https://lztmdrclht.github.io/post/san-jiao-xing-mu-chang/</id>
+        <link href="https://lztmdrclht.github.io/post/san-jiao-xing-mu-chang/">
         </link>
         <updated>2020-03-09T12:49:30.000Z</updated>
         <content type="html"><![CDATA[<h3 id="题目">题目</h3>
@@ -668,8 +668,8 @@ int main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[「一本通 5.2 例 1」二叉苹果树]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/yi-ben-tong-52-li-1-er-cha-ping-guo-shu/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/yi-ben-tong-52-li-1-er-cha-ping-guo-shu/">
+        <id>https://lztmdrclht.github.io/post/yi-ben-tong-52-li-1-er-cha-ping-guo-shu/</id>
+        <link href="https://lztmdrclht.github.io/post/yi-ben-tong-52-li-1-er-cha-ping-guo-shu/">
         </link>
         <updated>2020-03-09T12:48:31.000Z</updated>
         <content type="html"><![CDATA[<h3 id="题目">题目</h3>
@@ -727,8 +727,8 @@ int main() {
     </entry>
     <entry>
         <title type="html"><![CDATA[Flood Fill]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/flood-fill/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/flood-fill/">
+        <id>https://lztmdrclht.github.io/post/flood-fill/</id>
+        <link href="https://lztmdrclht.github.io/post/flood-fill/">
         </link>
         <updated>2020-03-09T12:47:59.000Z</updated>
         <content type="html"><![CDATA[<h3 id="题目">题目</h3>
@@ -768,8 +768,8 @@ int main () {
     </entry>
     <entry>
         <title type="html"><![CDATA[Coloring Brackets]]></title>
-        <id>https://lztmdrclht.github.io/lztmdrclht.github.io/post/coloring-brackets/</id>
-        <link href="https://lztmdrclht.github.io/lztmdrclht.github.io/post/coloring-brackets/">
+        <id>https://lztmdrclht.github.io/post/coloring-brackets/</id>
+        <link href="https://lztmdrclht.github.io/post/coloring-brackets/">
         </link>
         <updated>2020-03-09T12:47:20.000Z</updated>
         <content type="html"><![CDATA[<h3 id="题目">题目</h3>
