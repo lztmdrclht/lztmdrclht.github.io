@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lztmdrclht.github.io</id>
     <title>唐门</title>
-    <updated>2020-03-12T13:26:12.262Z</updated>
+    <updated>2020-08-28T06:35:32.252Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lztmdrclht.github.io"/>
     <link rel="self" href="https://lztmdrclht.github.io/atom.xml"/>
@@ -42,6 +42,7 @@
 <p><a href="https://dillinger.io/">Markdown</a></p>
 <p><a href="https://www.npmjs.com/package/nodeppt">PPT</a></p>
 <p><a href="https://www.luogu.com.cn/paste/zvu7fs1e">玄学优化</a></p>
+<p><a href="https://tool.oschina.net/hexconvert/">进制转换</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -59,10 +60,7 @@
 <p><a href="http://lvmaojun.com/">里番收藏夹</a></p>
 <p><a href="https://demo.glyptodon.com/#/client/ZGVtbwBjAGRlbW8=">虚拟机</a></p>
 <p><a href="https://www.52bqg.com/book_686/525444.html">x</a></p>
-<p>https://www.taptap.com/topic/6609496<br>
-https://www.taptap.com/topic/2831879<br>
-https://www.taptap.com/topic/7000217<br>
-https://www.taptap.com/topic/2786363</p>
+<p><a href="https://jcw87.github.io/c2-sans-fight/">sans</a></p>
 ]]></content>
     </entry>
     <entry>
