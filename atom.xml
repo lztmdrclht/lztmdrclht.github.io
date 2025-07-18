@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://lztmdrclht.github.io</id>
+    <title>Walnut</title>
+    <updated>2025-07-18T13:28:52.017Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://lztmdrclht.github.io"/>
+    <link rel="self" href="https://lztmdrclht.github.io/atom.xml"/>
+    <subtitle>半斤核桃</subtitle>
+    <logo>https://lztmdrclht.github.io/images/avatar.png</logo>
+    <icon>https://lztmdrclht.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, Walnut</rights>
+    <entry>
+        <title type="html"><![CDATA[未发生的暴力]]></title>
+        <id>https://lztmdrclht.github.io/post/xin-jian-wen-zhang/</id>
+        <link href="https://lztmdrclht.github.io/post/xin-jian-wen-zhang/">
+        </link>
+        <updated>2025-07-04T08:22:49.000Z</updated>
+        <content type="html"><![CDATA[<p>冰冷的腥刺的兽毛。在黑仄的洞内<br>
+豺狼吓逼我至曲隅，用它的爪<br>
+喘息吼震，寂静整穴</p>
+<p>甘美的尖叫，柔顺的蹬踹<br>
+喉咙被撕开，手被扯断<br>
+抱不了、抓不住、摸不到了，我的毛绒玩偶*，粉色<br>
+不见了，颜色都逃走了</p>
+<p>太紧了<br>
+它的臂掌如玫瑰藤，缠住我的踝，藤牙扯咬<br>
+太近了<br>
+只剩墙，森寒的墙，紧闭的墙<br>
+我看着她将被吃掉</p>
+<p>猎犬轻轻地舔了舔狐狸的脸<br>
+狐狸颤抖着，没有如常靠回猎犬肩上</p>
+<p><em>*毛绒玩偶:狐狸会用柔软的材料布置洞穴，如树叶、干草、动物毛发等</em></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[量产的诗意]]></title>
+        <id>https://lztmdrclht.github.io/post/liang-chan-de-shi-yi/</id>
+        <link href="https://lztmdrclht.github.io/post/liang-chan-de-shi-yi/">
+        </link>
+        <updated>2022-10-01T13:07:31.000Z</updated>
+        <content type="html"><![CDATA[<p>残月 枯荷 断弦的情</p>
+<p>远帆 飞鸟 悠扬的歌</p>
+<p>汽水 鸣蝉 已逝的夏</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[夜钓]]></title>
+        <id>https://lztmdrclht.github.io/post/ye-diao/</id>
+        <link href="https://lztmdrclht.github.io/post/ye-diao/">
+        </link>
+        <updated>2022-09-30T13:05:12.000Z</updated>
+        <content type="html"><![CDATA[<p>你将渔线放啊放，沉入大海，钓鲸鱼</p>
+<p>我将风筝放啊放，升入夜空</p>
+<p>钓星星</p>
+]]></content>
+    </entry>
+</feed>
